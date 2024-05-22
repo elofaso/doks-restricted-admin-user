@@ -1,0 +1,13 @@
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  namespace: default # Replace <namespace> with the appropriate namespace
+  name: joe-restricted-admin
+subjects:
+- kind: User
+  name: joe #  Use the name of the Service Account created in step 1
+  apiGroup: rbac.authorization.k8s.io
+roleRef:
+  kind: Role
+  name: restricted-admin
+  apiGroup: rbac.authorization.k8s.io
